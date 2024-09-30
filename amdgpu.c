@@ -24,9 +24,11 @@
 #include "drv_priv.h"
 #include "util.h"
 
-// clang-format off
-#define DRI_PATH STRINGIZE(DRI_DRIVER_DIR/radeonsi_dri.so)
-// clang-format on
+#ifdef __LP64__
+#define DRI_PATH "/vendor/lib64/libgallium_dri.so"
+#else
+#define DRI_PATH "/vendor/lib/libgallium_dri.so"
+#endif
 
 #define TILE_TYPE_LINEAR 0
 /* We decide a modifier and then use DRI to manage allocation */
