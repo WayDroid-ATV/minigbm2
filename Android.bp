@@ -331,10 +331,3 @@ cc_library_shared {
     defaults: ["minigbm_cros_gralloc0_defaults"],
     shared_libs: ["libminigbm_gralloc_arcvm"],
 }
-
-// mediatek
-cc_library_shared {
-    name: "libminigbm_gralloc_mediatek",
-    defaults: ["minigbm_cros_gralloc_library_defaults"],
-    cflags: mediatek_cflags,
-}
