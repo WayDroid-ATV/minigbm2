@@ -80,7 +80,6 @@ msm_cflags = [
     "-DHAS_DMABUF_SYSTEM_HEAP",
     "-DQCOM_DISABLE_COMPRESSED_NV12",
 ]
-arcvm_cflags = ["-DVIRTIO_GPU_NEXT"]
 
 mediatek_cflags = [
     "-DDRV_MEDIATEK",
@@ -104,7 +103,6 @@ cc_defaults {
         "intel": intel_cflags,
         "meson": meson_cflags,
         "msm": msm_cflags,
-        "arcvm": arcvm_cflags,
         "mt8186": mediatek_cflags + ["-DMTK_MT8186"],
         "mt8188": mediatek_cflags + ["-DMTK_MT8188G"],
         "mt8196": mediatek_cflags + ["-DMTK_MT8196"],
@@ -317,17 +315,4 @@ cc_library_shared {
     name: "gralloc.minigbm_msm",
     defaults: ["minigbm_cros_gralloc0_defaults"],
     shared_libs: ["libminigbm_gralloc_msm"],
-}
-
-// ARCVM
-cc_library_shared {
-    name: "libminigbm_gralloc_arcvm",
-    defaults: ["minigbm_cros_gralloc_library_defaults"],
-    cflags: arcvm_cflags,
-}
-
-cc_library_shared {
-    name: "gralloc.minigbm_arcvm",
-    defaults: ["minigbm_cros_gralloc0_defaults"],
-    shared_libs: ["libminigbm_gralloc_arcvm"],
 }
