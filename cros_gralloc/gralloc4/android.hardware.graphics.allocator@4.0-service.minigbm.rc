@@ -22,3 +22,7 @@ service vendor.graphics.allocator-4-0 /vendor/bin/hw/android.hardware.graphics.a
     capabilities SYS_NICE
     onrestart restart surfaceflinger
     task_profiles ServiceCapacityLow
+
+on early-init && property:ro.hardware.gralloc=minigbm
+    stop vendor.gralloc-2-0
+    enable vendor.graphics.allocator-4-0
